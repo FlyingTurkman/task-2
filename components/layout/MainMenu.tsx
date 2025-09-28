@@ -23,7 +23,7 @@ export default function MainMenu() {
         className="bg-primary text-primary-foreground"
         >
             <div
-            className="flex flex-row mx-auto items-center gap-4 p-4"
+            className="flex flex-row mx-auto container items-center gap-4 p-4"
             >
                 <Link
                 href={'/'}

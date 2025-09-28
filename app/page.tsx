@@ -1,11 +1,47 @@
+import { apiBasePath } from "@/lib/src/constants";
+import { productType } from "@/types";
+import MainPageClient from "./page.client";
 
 
-export default function Home() {
+
+
+
+
+
+
+export const revalidate = 60
+
+
+
+
+
+export default async function Home() {
   
+  const featuredProducts = await getFeaturedProducts()
 
   return (
-    <main>
-      
-    </main>
+    <MainPageClient
+    featuredProducts={featuredProducts}
+    />
   );
+}
+
+
+
+async function getFeaturedProducts(): Promise<productType[]> {
+
+  try {
+    
+    const res = await fetch(`${apiBasePath}/products`)
+
+    const response = await res.json()
+
+    const products: productType[] = JSON.parse(JSON.stringify(response))
+
+    return products.slice(0, 4)
+  } catch (error) {
+    console.log('Error: ', error)
+
+    return []
+  }
 }
