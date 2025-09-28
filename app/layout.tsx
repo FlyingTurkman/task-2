@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { appWithTranslation } from 'next-i18next'
 import SiteContextProvider from "@/context/SiteContextProvider";
+import MainMenu from "@/components/layout/MainMenu";
 
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <MainMenu/>
           {children}
         </body>
       </SiteContextProvider>
