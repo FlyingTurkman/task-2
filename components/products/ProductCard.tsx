@@ -3,16 +3,16 @@
 import { productType } from "@/types"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import Link from "next/link"
-import { Button, buttonVariants } from "../ui/button"
-import { Separator } from "../ui/separator"
+import { Button } from "../ui/button"
 import Image from "next/image"
 import { imageLoader } from "@/lib/src/imageLoader"
 import { Label } from "../ui/label"
 import ProductStars from "./ProductStars"
 import { useTranslation } from "react-i18next"
-import { FaBasketShopping } from "react-icons/fa6"
 import { addToBasket } from "@/lib/src/addToBasket"
 import { useSiteContext } from "@/context/SiteContextProvider"
+import { toast } from "sonner"
+import { FaShoppingCart } from "react-icons/fa"
 
 
 
@@ -97,9 +97,10 @@ export default function ProductCard({
 
                     setCart(response)
                     
+                    toast.success(t('Product succesfully added to cart.'))
                 }}
                 >
-                    <FaBasketShopping/>
+                    <FaShoppingCart/>
                     {t('Add To Basket')}
                 </Button>
             </CardFooter>

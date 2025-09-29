@@ -2,14 +2,22 @@
 
 import ProductStars from "@/components/products/ProductStars"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+import { Button } from "@/components/ui/button"
 import H1 from "@/components/ui/h1"
+import { H2 } from "@/components/ui/h2"
 import { Label } from "@/components/ui/label"
 import { P } from "@/components/ui/p"
 import { Separator } from "@/components/ui/separator"
+import { useSiteContext } from "@/context/SiteContextProvider"
+import { addToBasket } from "@/lib/src/addToBasket"
 import { imageLoader } from "@/lib/src/imageLoader"
-import { productType } from "@/types"
+import { cartProductType, productType } from "@/types"
 import Image from "next/image"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { FaShoppingCart } from "react-icons/fa"
+import { IoAdd, IoRemove } from "react-icons/io5"
+import { toast } from "sonner"
 
 
 
@@ -28,6 +36,10 @@ export default function ProductPageClient({
 }: {
     product: productType
 }) {
+
+    const { setCart } = useSiteContext()
+
+    const [count, setCount] = useState<number>(1)
 
     const { t } = useTranslation()
 
@@ -107,6 +119,61 @@ export default function ProductPageClient({
                     <P>
                         {product.description}
                     </P>
+                    <Separator/>
+                    <H2>
+                        {product.price * count} $
+                    </H2>
+                    <div
+                    className="flex flex-row items-center gap-4"
+                    >
+                        <Button
+                        variant={'outline'}
+                        size={'icon'}
+                        className="rounded-full"
+                        disabled={count == 1}
+                        onClick={() => {
+                            if (count > 1) {
+                                setCount((prev) => prev - 1)
+                            }
+                        }}
+                        >
+                            <IoRemove/>
+                        </Button>
+                        <Label
+                        className="text-2xl"
+                        >
+                            {count}
+                        </Label>
+                        <Button
+                        variant={'outline'}
+                        size={'icon'}
+                        className="rounded-full"
+                        onClick={() => {
+                            setCount((prev) => prev + 1)
+                        }}
+                        >
+                            <IoAdd/>
+                        </Button>
+                    </div>
+                    <Separator/>
+                    <Button
+                    onClick={() => {
+
+                        const cartProduct: cartProductType = {
+                            ...product,
+                            count
+                        }
+
+                        const response = addToBasket(cartProduct)
+
+                        setCart(response)
+
+                        toast.success(t('Product succesfully added to cart.'))
+                    }}
+                    >
+                        <FaShoppingCart/>
+                        Add To Basket
+                    </Button>
                 </div>
             </div>
         </div>
