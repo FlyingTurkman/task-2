@@ -10,6 +10,7 @@ import { imageLoader } from "@/lib/src/imageLoader"
 import { Label } from "../ui/label"
 import ProductStars from "./ProductStars"
 import { useTranslation } from "react-i18next"
+import { FaBasketShopping } from "react-icons/fa6"
 
 
 
@@ -38,7 +39,7 @@ export default function ProductCard({
             <CardHeader>
                 <CardTitle>
                     <Link
-                    href={`/products${product.id}`}
+                    href={`/products/${product.id}`}
                     className="text-primary hover:underline"
                     >
                         {product.title}
@@ -81,7 +82,8 @@ export default function ProductCard({
                 href={`/products/${product.id}`}
                 className={buttonVariants({ variant: 'default', className: 'w-full' })}
                 >
-                    {t('Go To Product')}
+                    <FaBasketShopping/>
+                    {t('Add To Basket')}
                 </Link>
             </CardFooter>
         </Card>
