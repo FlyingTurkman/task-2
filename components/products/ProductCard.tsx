@@ -3,7 +3,7 @@
 import { productType } from "@/types"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import Link from "next/link"
-import { buttonVariants } from "../ui/button"
+import { Button, buttonVariants } from "../ui/button"
 import { Separator } from "../ui/separator"
 import Image from "next/image"
 import { imageLoader } from "@/lib/src/imageLoader"
@@ -75,16 +75,20 @@ export default function ProductCard({
                     >
                         {product.description}
                     </CardDescription>
+                    <Label
+                    className="text-xl"
+                    >
+                        {product.price} $
+                    </Label>
                 </div>
             </CardContent>
             <CardFooter>
-                <Link
-                href={`/products/${product.id}`}
-                className={buttonVariants({ variant: 'default', className: 'w-full' })}
+                <Button
+                className="w-full"
                 >
                     <FaBasketShopping/>
                     {t('Add To Basket')}
-                </Link>
+                </Button>
             </CardFooter>
         </Card>
     )
