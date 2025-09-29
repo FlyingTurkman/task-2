@@ -9,7 +9,11 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useStat
 export type productsPageContextType = {
     searchParams?: productsPageSearchParamsType,
     products: productType[],
-    setProducts: Dispatch<SetStateAction<productType[]>>
+    setProducts: Dispatch<SetStateAction<productType[]>>,
+    initialProducts: productType[],
+    categories: string[],
+    minPrice: number,
+    maxPrice: number
 }
 
 
@@ -17,7 +21,11 @@ export type productsPageContextType = {
 export const ProductsPageContext = createContext<productsPageContextType>({
     searchParams: undefined,
     products: [],
-    setProducts: () => {}
+    setProducts: () => {},
+    initialProducts: [],
+    categories: [],
+    minPrice: 0,
+    maxPrice: 0
 })
 
 
@@ -56,7 +64,11 @@ export default function ProductsPageContextProvider({
     const value: productsPageContextType = {
         searchParams,
         products,
-        setProducts
+        setProducts,
+        initialProducts,
+        categories,
+        minPrice,
+        maxPrice
     }
 
     return (

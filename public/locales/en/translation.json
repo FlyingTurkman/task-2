@@ -3,5 +3,18 @@
     "Products": "Products",
     "Go To Product": "Go To Product",
     "Featured Products": "Featured Products",
-    "Add To Basket": "Add To Basket"
+    "Add To Basket": "Add To Basket",
+    "Categories": "Categories",
+    "Price": "Price",
+    "Minimum Price": "Minimum Price",
+    "Maximum Price": "Maximum Price",
+    "MinPriceError": "Minimum price must be higher than {{minPrice}}",
+    "Filter": "Filter",
+    "Product Category": "Product Category",
+    "Invalid price": "Invalid price",
+    "Order by Price": "Order by Price",
+    "Ascending": "Ascending",
+    "Descending": "Descending",
+    "Clear category filter": "Clear category filter",
+    "Clear order filter": "Clear order filter"
 }

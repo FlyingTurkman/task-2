@@ -3,5 +3,18 @@
     "Products": "Ürünler",
     "Go To Product": "Go To Product",
     "Featured Products": "Öne Çıkan Ürünler",
-    "Add To Basket": "Sepete Ekle"
+    "Add To Basket": "Sepete Ekle",
+    "Categories": "Kategoriler",
+    "Price": "Fiyat",
+    "Minimum Price": "En Düşük Fiyat",
+    "Maximum Price": "En Yüksek Fiyat",
+    "MinPriceError": "En düşük fiyat olarak {{minPrice}} girebilirsiniz.",
+    "Filter": "Filtrele",
+    "Product Category": "Ürün Kategorisi",
+    "Invalid price": "Geçersiz fiyat",
+    "Order by Price": "Fiyata Göre Sırala",
+    "Ascending": "Artan",
+    "Descending": "Azalan",
+    "Clear category filter": "Kategori filtresini temizle",
+    "Clear order filter": "Kategori filtresini temizle"
 }

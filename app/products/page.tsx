@@ -12,7 +12,7 @@ export type productsPageSearchParamsType = {
     category?: string,
     minPrice?: string,
     maxPrice?: string,
-    priceOrder?: 'asc' | 'desc'
+    priceOrder?: string
 }
 
 
