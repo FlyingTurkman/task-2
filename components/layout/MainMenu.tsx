@@ -6,6 +6,7 @@ import { Button, buttonVariants } from "../ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { US, TR } from 'country-flag-icons/react/3x2'
 import { useEffect, useState } from "react"
+import CartSheet from "./CartSheet"
 
 
 
@@ -27,10 +28,10 @@ export default function MainMenu() {
         className="bg-primary text-primary-foreground sticky top-0 left-0"
         >
             <div
-            className="flex flex-row items-center justify-between w-full p-4"
+            className="flex flex-row items-center mx-auto container justify-between w-full p-4"
             >
                 <div
-                className="flex flex-row mx-auto container items-center gap-4"
+                className="flex flex-row items-center gap-4"
                 >
                     <Link
                     href={'/'}
@@ -75,6 +76,7 @@ export default function MainMenu() {
                             </SelectContent>
                         </SelectTrigger>
                     </Select>
+                    <CartSheet/>
                 </div>
             </div>
         </div>

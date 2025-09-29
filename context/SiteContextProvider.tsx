@@ -1,7 +1,7 @@
 'use client'
 
 import { I18nextProvider } from 'react-i18next'
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react"
 import i18n from "@/lib/src/i18nClient"
 import { cartProductType } from '@/types'
 
@@ -46,6 +46,15 @@ export default function SiteContextProvider({
         setCart
     }
 
+    useEffect(() => {
+        const cartStorage = localStorage.getItem('cart')
+
+        if (!cartStorage) {
+            setCart([])
+        } else {
+            setCart(JSON.parse(cartStorage))
+        }
+    }, [])
     return (
         <SiteContext.Provider
         value={value}

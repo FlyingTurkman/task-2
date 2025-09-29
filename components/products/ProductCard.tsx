@@ -11,6 +11,8 @@ import { Label } from "../ui/label"
 import ProductStars from "./ProductStars"
 import { useTranslation } from "react-i18next"
 import { FaBasketShopping } from "react-icons/fa6"
+import { addToBasket } from "@/lib/src/addToBasket"
+import { useSiteContext } from "@/context/SiteContextProvider"
 
 
 
@@ -29,6 +31,8 @@ export default function ProductCard({
 }: {
     product: productType
 }) {
+
+    const { setCart } = useSiteContext()
 
     const { t } = useTranslation()
 
@@ -85,6 +89,15 @@ export default function ProductCard({
             <CardFooter>
                 <Button
                 className="w-full"
+                onClick={() => {
+                    const response = addToBasket({
+                        ...product,
+                        count: 1
+                    })
+
+                    setCart(response)
+                    
+                }}
                 >
                     <FaBasketShopping/>
                     {t('Add To Basket')}
