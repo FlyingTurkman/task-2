@@ -30,7 +30,7 @@ export default function MainMenu() {
                 href={'/'}
                 className={buttonVariants({ variant: 'ghost' })}
                 >
-                    {t('Main Menu')}
+                    {t('Main Page')}
                 </Link>
                 <Link
                 href={'/products'}

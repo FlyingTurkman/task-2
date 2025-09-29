@@ -55,6 +55,14 @@ export default function ProductPageClient({
                     <BreadcrumbSeparator/>
                     <BreadcrumbItem>
                         <BreadcrumbLink
+                        href={`/products?category=${product.category}`}
+                        >
+                            {product.category}
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator/>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink
                         href={`/products/${product.id}`}
                         >
                             {product.title}
