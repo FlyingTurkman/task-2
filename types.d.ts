@@ -18,3 +18,8 @@ export type productType = {
         count: number
     }
 }
+
+
+export type cartProductType = productType & {
+    count: number
+}

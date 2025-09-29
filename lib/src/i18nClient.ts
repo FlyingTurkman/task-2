@@ -6,7 +6,8 @@ import Backend from 'i18next-http-backend'
 
 
 
-
+const lng = typeof window != 'undefined' ? localStorage.getItem('lng') : null
+const initialLng = lng ?? 'tr'
 
 
 
@@ -16,7 +17,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'tr',
-    lng: 'tr',
+    lng: initialLng,
     supportedLngs: ['en', 'tr'],
     interpolation: {
       escapeValue: false,

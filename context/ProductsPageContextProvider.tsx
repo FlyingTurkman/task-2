@@ -30,7 +30,7 @@ export const ProductsPageContext = createContext<productsPageContextType>({
 
 
 
-export function useProductsContext() {
+export function useProductsContext(): productsPageContextType {
 
     const ctx = useContext(ProductsPageContext)
 
