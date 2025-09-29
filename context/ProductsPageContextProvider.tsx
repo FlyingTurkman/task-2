@@ -59,7 +59,7 @@ export default function ProductsPageContextProvider({
     maxPrice: number
 }) {
 
-    const [products, setProducts] = useState<productType[]>([])
+    const [products, setProducts] = useState<productType[]>(initialProducts)
 
     const value: productsPageContextType = {
         searchParams,

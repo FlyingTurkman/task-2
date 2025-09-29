@@ -54,7 +54,7 @@ export default function ProductsSidebar() {
     })
     return (
         <div
-        className="flex flex-col gap-4 max-w-xs w-full p-4 border-r border-r-border max-h-[calc(100vh-68px)] h-[calc(100vh-68px)] overflow-auto sticky top-[68px]"
+        className="flex flex-col shirnk-0 gap-4 min-w-xs max-w-xs w-full p-4 border-r border-r-border max-h-[calc(100vh-68px)] h-[calc(100vh-68px)] overflow-auto sticky top-[68px]"
         >
             <Form
             {...form}
@@ -257,6 +257,16 @@ export default function ProductsSidebar() {
                     <Separator
                     className="mb-2"
                     />
+                    <Button
+                    type="button"
+                    onClick={() => {
+                        router.replace('/products')
+                    }}
+                    variant={'destructive'}
+                    className="w-full my-2"
+                    >
+                        {t('Clear All Filters')}
+                    </Button>
                     <Button
                     type="submit"
                     className="w-full"
