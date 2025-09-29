@@ -2,10 +2,9 @@
 
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
-import { Button, buttonVariants } from "../ui/button"
+import { buttonVariants } from "../ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { US, TR } from 'country-flag-icons/react/3x2'
-import { useEffect, useState } from "react"
 import CartSheet from "./CartSheet"
 
 

@@ -1,7 +1,6 @@
 'use client'
 
 import { productType } from "@/types"
-import { productsPageSearchParamsType } from "./page"
 import ProductsSidebar from "@/components/products/ProductsSidebar"
 import { useProductsContext } from "@/context/ProductsPageContextProvider"
 import { useEffect, useState } from "react"

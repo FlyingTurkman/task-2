@@ -4,7 +4,6 @@ import { useProductsContext } from "@/context/ProductsPageContextProvider"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
 import { useTranslation } from "react-i18next"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
-import { Label } from "../ui/label"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { productsPageSearchParamsType } from "@/app/products/page"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
@@ -34,8 +33,7 @@ export default function ProductsSidebar() {
     const { 
         categories,
         searchParams,
-        minPrice,
-        maxPrice
+        minPrice
     } = useProductsContext()
 
     const form = useForm<productsPageSearchParamsType>({
