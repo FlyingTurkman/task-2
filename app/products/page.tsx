@@ -6,6 +6,8 @@ import ProductsPageContextProvider from "@/context/ProductsPageContextProvider";
 
 
 
+export const revalidate = 60
+
 
 
 export type productsPageSearchParamsType = {
@@ -16,12 +18,10 @@ export type productsPageSearchParamsType = {
 }
 
 
-
-
 export default async function Page({
     searchParams: initialSearchParams
 }: {
-    searchParams?: Promise<productsPageSearchParamsType>
+    searchParams: Promise<productsPageSearchParamsType>
 }) {
 
     const searchParams = await initialSearchParams
@@ -49,11 +49,20 @@ async function getProducts(): Promise<productType[]> {
 
     try {
         
-        const res = await fetch(`${apiBasePath}/products`)
+        const res = await fetch(`${apiBasePath}/products`, {
+            next: {
+                revalidate: 0
+            }
+        })
+
+        if (!res.ok) {
+            return []
+        }
 
         const response = await res.json()
 
         return response
+
     } catch (error) {
         console.log('Error: ', error)
 
@@ -63,7 +72,7 @@ async function getProducts(): Promise<productType[]> {
 
 function getCategories(products: productType[]): string[] {
 
-    let categories: string[] = []
+    const categories: string[] = []
 
     for (const product of products) {
 

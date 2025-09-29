@@ -9,8 +9,7 @@ import ProductPageClient from "./page.client"
 
 
 
-
-
+export const revalidate = 60
 
 
 
@@ -24,6 +23,7 @@ export default async function Page({
 }) {
 
     const params = await initialParams
+
 
     const product = await getProduct(params.productId)
 
@@ -51,7 +51,7 @@ async function getProduct(productId: string): Promise<productType | null> {
         }
 
         return response
-        
+
     } catch (error) {
         console.log('Error: ', error)
 

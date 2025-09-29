@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "..
 import { useTranslation } from "react-i18next"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { productsPageSearchParamsType } from "@/app/products/page"
+//import { productsPageSearchParamsType } from "@/app/products/page"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
@@ -16,7 +16,12 @@ import { useRouter } from "next/navigation"
 
 
 
-
+export type productsPageSearchParamsType = {
+    category?: string,
+    minPrice?: string,
+    maxPrice?: string,
+    priceOrder?: string
+}
 
 
 

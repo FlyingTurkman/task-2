@@ -13,6 +13,7 @@
     "Product Category": "Ürün Kategorisi",
     "Invalid price": "Geçersiz fiyat",
     "Order by Price": "Fiyata Göre Sırala",
+    "Order": "Sırala",
     "Ascending": "Artan",
     "Descending": "Azalan",
     "Clear category filter": "Kategori filtresini temizle",
@@ -20,5 +21,6 @@
     "Clear All Filters": "Tüm Filtreleri Temizle",
     "Language": "Dil",
     "Shopping Cart": "Sepet",
-    "Product succesfully added to cart.": "Ürün sepete başarıyla eklendi."
+    "Product succesfully added to cart.": "Ürün sepete başarıyla eklendi.",
+    "Page Not Found": "Sayfa Bulunamadı"
 }

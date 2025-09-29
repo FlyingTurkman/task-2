@@ -4,6 +4,7 @@ import { I18nextProvider } from 'react-i18next'
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useEffect, useState } from "react"
 import i18n from "@/lib/src/i18nClient"
 import { cartProductType } from '@/types'
+import I18nProviderWrapper from '@/components/layout/I18NextProviderWrap'
 
 
 
@@ -59,11 +60,7 @@ export default function SiteContextProvider({
         <SiteContext.Provider
         value={value}
         >
-            <I18nextProvider
-            i18n={i18n}
-            >
-                {children}
-            </I18nextProvider>
+            {children}
         </SiteContext.Provider>
     )
 }

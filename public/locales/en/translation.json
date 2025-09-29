@@ -13,6 +13,7 @@
     "Product Category": "Product Category",
     "Invalid price": "Invalid price",
     "Order by Price": "Order by Price",
+    "Order": "Order",
     "Ascending": "Ascending",
     "Descending": "Descending",
     "Clear category filter": "Clear category filter",
@@ -20,5 +21,6 @@
     "Clear All Filters": "Clear All Filters",
     "Language": "Language",
     "Shopping Cart": "Shopping Cart",
-    "Product succesfully added to cart.": "Product succesfully added to cart."
+    "Product succesfully added to cart.": "Product succesfully added to cart.",
+    "Page Not Found": "Page Not Found"
 }

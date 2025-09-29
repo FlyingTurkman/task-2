@@ -3,7 +3,8 @@
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
 import Backend from 'i18next-http-backend'
-
+import translationEn from '@/public/locales/en/translation.json'
+import translationTr from '@/public/locales/tr/translation.json'
 
 
 const lng = typeof window != 'undefined' ? localStorage.getItem('lng') : null
@@ -18,6 +19,15 @@ i18n
   .init({
     fallbackLng: 'tr',
     lng: initialLng,
+    debug: true,
+    resources: {
+      en: {
+        translation: translationEn
+      },
+      tr: {
+        translation: translationTr
+      }
+    },
     supportedLngs: ['en', 'tr'],
     interpolation: {
       escapeValue: false,

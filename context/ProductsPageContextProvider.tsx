@@ -1,6 +1,8 @@
 'use client'
 
-import { productsPageSearchParamsType } from "@/app/products/page"
+import { productsPageSearchParamsType } from "@/components/products/ProductsSidebar"
+//import { productsPageSearchParamsType } from "@/app/products/page"
+
 import { productType } from "@/types"
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from "react"
 
