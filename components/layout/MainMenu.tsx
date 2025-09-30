@@ -66,7 +66,9 @@ export default function MainMenu() {
                     open={isMenuSheetOpen}
                     onOpenChange={setIsMenuSheetOpen}
                     >
-                        <SheetTrigger>
+                        <SheetTrigger
+                        aria-label={t('Menu Button')}
+                        >
                             <IoMenu/>
                         </SheetTrigger>
                         <SheetContent

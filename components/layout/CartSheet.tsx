@@ -25,7 +25,9 @@ export default function CartSheet() {
 
     return (
         <Sheet>
-            <SheetTrigger>
+            <SheetTrigger
+            aria-label={t('Cart Button')}
+            >
                 <div
                 className="relative"
                 >
