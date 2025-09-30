@@ -5,6 +5,12 @@ import ProductsSidebar from "@/components/products/ProductsSidebar"
 import { useProductsContext } from "@/context/ProductsPageContextProvider"
 import { useEffect, useState } from "react"
 import ProductCard from "@/components/products/ProductCard"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { FaFilter } from "react-icons/fa6"
+import { useTranslation } from "react-i18next"
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import { usePathname, useSearchParams } from "next/navigation"
 
 
 
@@ -20,6 +26,14 @@ import ProductCard from "@/components/products/ProductCard"
 
 
 export default function ProductsPageClient() {
+
+    const pathname = usePathname()
+
+    const clientSearchParams = useSearchParams()
+
+    const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false)
+
+    const { t } = useTranslation()
 
     const { products: initialProducts, searchParams } = useProductsContext()
 
@@ -59,11 +73,49 @@ export default function ProductsPageClient() {
         setProducts(filteredProducts)
 
     }, [searchParams, initialProducts])
+
+    useEffect(() => {
+        setIsSheetOpen(false)
+    }, [pathname, clientSearchParams])
     return (
         <div
-        className="flex flex-row items-start gap-4 container mx-auto"
+        className="flex flex-col lg:flex-row items-start gap-4 container mx-auto"
         >
-            <ProductsSidebar/>
+            <div
+            className="hidden lg:block"
+            >
+                <ProductsSidebar/>
+            </div>
+            <div
+            className="block lg:hidden mt-4 mx-4"
+            >
+                <Sheet
+                open={isSheetOpen}
+                onOpenChange={setIsSheetOpen}
+                >
+                    <SheetTrigger
+                    asChild
+                    >
+                        <Button
+                        variant={'outline'}
+                        >
+                            <FaFilter/>
+                            {t('Filter')}
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent
+                    side="left"
+                    >
+                        <SheetHeader>
+                            <SheetTitle>
+                                {t('Filter')}
+                            </SheetTitle>
+                        </SheetHeader>
+                        <Separator/>
+                        <ProductsSidebar/>
+                    </SheetContent>
+                </Sheet>
+            </div>
             <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             >
