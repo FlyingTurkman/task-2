@@ -57,7 +57,7 @@ export default function ProductsSidebar() {
     })
     return (
         <div
-        className="flex flex-col shirnk-0 gap-4 min-w-xs max-w-xs w-full p-4 border-r border-r-border max-h-[calc(100vh-68px)] h-[calc(100vh-68px)] overflow-auto sticky top-[68px]"
+        className="flex flex-col shirnk-0 gap-4 lg:min-w-xs lg:max-w-xs w-full p-4 border-r border-r-border max-h-[calc(100vh-68px)] h-[calc(100vh-68px)] overflow-auto sticky top-[68px]"
         >
             <Form
             {...form}

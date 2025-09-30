@@ -11,6 +11,8 @@ import { FormLabel } from "../ui/form"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
 import { IoMenu } from "react-icons/io5"
 import { Separator } from "../ui/separator"
+import { usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
 
 
@@ -25,8 +27,15 @@ import { Separator } from "../ui/separator"
 
 export default function MainMenu() {
 
+    const pathname = usePathname()
+
+    const [isMenuSheetOpen, setIsMenuSheetOpen] = useState<boolean>(false)
+
     const { t, i18n } = useTranslation()
-    
+
+    useEffect(() => {
+        setIsMenuSheetOpen(false)
+    }, [pathname])
     return (
         <div
         className="bg-primary text-primary-foreground sticky top-0 left-0"
@@ -53,7 +62,10 @@ export default function MainMenu() {
                 <div
                 className="flex lg:hidden"
                 >
-                    <Sheet>
+                    <Sheet
+                    open={isMenuSheetOpen}
+                    onOpenChange={setIsMenuSheetOpen}
+                    >
                         <SheetTrigger>
                             <IoMenu/>
                         </SheetTrigger>
@@ -68,13 +80,13 @@ export default function MainMenu() {
                             <Separator/>
                             <Link
                             href={'/'}
-                            className={buttonVariants({ variant: 'ghost' })}
+                            className={buttonVariants({ variant: 'link', className: '!justify-start' })}
                             >
                                 {t('Main Page')}
                             </Link>
                             <Link
                             href={'/products'}
-                            className={buttonVariants({ variant: 'ghost' })}
+                            className={buttonVariants({ variant: 'link', className: '!justify-start' })}
                             >
                                 {t('Products')}
                             </Link>
