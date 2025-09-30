@@ -5,8 +5,6 @@ import SiteContextProvider from "@/context/SiteContextProvider";
 import MainMenu from "@/components/layout/MainMenu";
 import { Toaster } from "@/components/ui/sonner"
 import I18nProviderWrapper from "@/components/layout/I18NextProviderWrap";
-import { I18nextProvider } from "react-i18next";
-import i18n from "@/lib/src/i18nClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,8 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <I18nProviderWrapper>
-        <SiteContextProvider>
+      
+      <SiteContextProvider>
+        <I18nProviderWrapper>
           <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
@@ -40,8 +39,8 @@ export default function RootLayout({
             {children}
             <Toaster/>
           </body>
-        </SiteContextProvider>
-      </I18nProviderWrapper>
+        </I18nProviderWrapper>
+      </SiteContextProvider>
     </html>
 
   );
