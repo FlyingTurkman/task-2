@@ -34,6 +34,7 @@ async function getFeaturedProducts(): Promise<productType[]> {
 
     const products: productType[] = JSON.parse(JSON.stringify(response))
 
+    // return with first 4 products
     return products.slice(0, 4)
 
   } catch (error) {

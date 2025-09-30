@@ -12,6 +12,7 @@ import { Button } from "../ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { Separator } from "../ui/separator"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 
 
@@ -55,6 +56,35 @@ export default function ProductsSidebar() {
     const onSubmit: SubmitHandler<productsPageSearchParamsType> = ((data) => {
         filterProducts(data)
     })
+
+    useEffect(() => {
+
+        // applies every filter to form
+
+        if (searchParams?.category) {
+            setValue('category', searchParams.category)
+        } else {
+            setValue('category', '')
+        }
+
+        if (searchParams?.priceOrder) {
+            setValue('priceOrder', searchParams.priceOrder)
+        } else {
+            setValue('priceOrder', '')
+        }
+
+        if (searchParams?.minPrice) {
+            setValue('minPrice', searchParams.minPrice)
+        } else {
+            setValue('minPrice', '')
+        }
+
+        if (searchParams?.maxPrice) {
+            setValue('maxPrice', searchParams.maxPrice)
+        } else {
+            setValue('maxPrice', '')
+        }
+    }, [searchParams])
     return (
         <div
         className="flex flex-col shirnk-0 gap-4 lg:min-w-xs lg:max-w-xs w-full p-4 border-r border-r-border max-h-[calc(100vh-68px)] h-[calc(100vh-68px)] overflow-auto sticky top-[68px]"
@@ -71,6 +101,8 @@ export default function ProductsSidebar() {
                     type="multiple"
                     defaultValue={["categories", "price", "order"]}
                     >
+
+                        {/* Categories  */}
                         <AccordionItem
                         value="categories"
                         >
@@ -133,6 +165,8 @@ export default function ProductsSidebar() {
                                 </Button>
                             </AccordionContent>
                         </AccordionItem>
+
+                        {/* Price */}
                         <AccordionItem
                         value="price"
                         >
@@ -142,7 +176,7 @@ export default function ProductsSidebar() {
                                 {t('Price')}
                             </AccordionTrigger>
                             <AccordionContent
-                            className="p-2"
+                            className="p-2 flex flex-col gap-4"
                             >
                                 <FormField
                                 name="minPrice"
@@ -198,6 +232,8 @@ export default function ProductsSidebar() {
                                 />
                             </AccordionContent>
                         </AccordionItem>
+
+                        {/* Order */}
                         <AccordionItem
                         value="order"
                         >

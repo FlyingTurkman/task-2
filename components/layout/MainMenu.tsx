@@ -43,6 +43,7 @@ export default function MainMenu() {
             <div
             className="flex flex-row items-center mx-auto container justify-between w-full p-4"
             >
+                {/* Desktop menu */}
                 <div
                 className="hidden lg:flex flex-row items-center gap-4"
                 >
@@ -59,6 +60,8 @@ export default function MainMenu() {
                         {t('Products')}
                     </Link>
                 </div>
+
+                {/* Mobile menu */}
                 <div
                 className="flex lg:hidden"
                 >
@@ -98,6 +101,8 @@ export default function MainMenu() {
                 <div
                 className="flex flex-row items-center gap-4"
                 >
+
+                    {/* Language select */}
                     <Select
                     defaultValue={i18n.language}
                     onValueChange={((e) => {
@@ -139,6 +144,8 @@ export default function MainMenu() {
                             </SelectContent>
                         </SelectTrigger>
                     </Select>
+
+                    {/* Cart Sheet */}
                     <CartSheet/>
                 </div>
             </div>

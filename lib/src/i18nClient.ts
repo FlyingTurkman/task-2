@@ -7,6 +7,8 @@ import translationEn from '@/public/locales/en/translation.json'
 import translationTr from '@/public/locales/tr/translation.json'
 
 
+
+// getting initial language from local storage
 const lng = typeof window != 'undefined' ? localStorage.getItem('lng') : null
 const initialLng = lng ?? 'tr'
 
@@ -19,7 +21,7 @@ i18n
   .init({
     fallbackLng: 'tr',
     lng: initialLng,
-    debug: false,
+    debug: false, // debug true if need
     resources: {
       en: {
         translation: translationEn

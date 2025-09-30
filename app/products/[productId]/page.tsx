@@ -18,6 +18,8 @@ type propsType = {
 }
 
 
+
+// dynamic metadata set
 export async function generateMetadata({ params }: propsType, parent: ResolvingMetadata): Promise<Metadata> {
 
     try {

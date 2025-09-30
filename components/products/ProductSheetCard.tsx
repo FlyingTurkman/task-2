@@ -32,7 +32,22 @@ export default function ProductSheetCard({
     const { cart, setCart } = useSiteContext()
 
     return (
-        <Card>
+        <Card
+        className="relative"
+        >
+
+            {/* Remove from basket button */}
+            <Button
+            variant={'destructive'}
+            size={'icon'}
+            onClick={() => {
+                removeProductFromBasket(product.id)
+            }}
+            className="absolute bottom-0 right-0"
+            >
+                <IoTrashBin/>
+            </Button>
+
             <CardContent>
                 <div
                 className="flex flex-row items-center gap-2"
@@ -40,6 +55,8 @@ export default function ProductSheetCard({
                     <div
                     className="w-16 h-16 aspect-square shrink-0"
                     >
+
+                        {/* Image */}
                         <Link
                         href={`/products/${product.id}`}
                         >
@@ -58,11 +75,15 @@ export default function ProductSheetCard({
                     <div
                     className="flex flex-col gap-2"
                     >
+
+                        {/* Title */}
                         <Label>
                             <b>
                                 {product.title}
                             </b>
                         </Label>
+
+                        {/* Total price */}
                         <Label>
                             {(product.price * product.count).toFixed(2)} $
                         </Label>

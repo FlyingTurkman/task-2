@@ -70,6 +70,8 @@ export default function ProductCard({
                 <div
                 className="flex flex-col gap-2"
                 >
+
+                    {/* Rating */}
                     <div
                     className="flex flex-row items-center gap-2"
                     >
@@ -80,11 +82,15 @@ export default function ProductCard({
                             ({product.rating.count})
                         </Label>
                     </div>
+
+                    {/* Description */}
                     <CardDescription
                     className="line-clamp-3"
                     >
                         {product.description}
                     </CardDescription>
+
+                    {/* Price label */}
                     <Label>
                         {product.price} $
                     </Label>

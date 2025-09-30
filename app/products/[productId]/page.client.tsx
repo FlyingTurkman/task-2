@@ -47,6 +47,8 @@ export default function ProductPageClient({
         <div
         className="container mx-auto my-10 space-y-6"
         >
+
+            {/* Product page breadcrumb */}
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -67,7 +69,7 @@ export default function ProductPageClient({
                     <BreadcrumbSeparator/>
                     <BreadcrumbItem>
                         <BreadcrumbLink
-                        href={`/products?category=${product.category}`}
+                        href={`/products?category=${product.category}`} // filter for category at products page
                         >
                             {product.category}
                         </BreadcrumbLink>
@@ -85,6 +87,8 @@ export default function ProductPageClient({
             <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             >
+
+                {/* Product image */}
                 <div
                 className="col-span-1 sm:col-span-1 lg:col-span-2 aspect-square p-2"
                 >
@@ -102,11 +106,15 @@ export default function ProductPageClient({
                 <div
                 className="col-span-1 sm:col-span-1 lg:col-span-2 p-2 space-y-4"
                 >
+
+                    {/* Header */}
                     <H1
                     className="!text-start"
                     >
                         {product.title}
                     </H1>
+
+                    {/* Rating */}
                     <div
                     className="flex flex-row items-center gap-2"
                     >
@@ -118,17 +126,23 @@ export default function ProductPageClient({
                         </Label>
                     </div>
                     <Separator/>
+
+                    {/* Description */}
                     <P>
                         {product.description}
                     </P>
                     <Separator/>
+
+                    {/* Price */}
                     <H2
                     className="text-center lg:text-start"
                     >
                         {(product.price * count).toFixed(2)} $
                     </H2>
+
+                    {/* Count buttons */}
                     <div
-                    className="flex flex-row items-center justify-center lg:justify-start gap-4"
+                    className="flex flex-row items-center justify-center lg:justify-start gap-4" // centering items when mobile
                     >
                         <Button
                         variant={'outline'}
@@ -162,8 +176,10 @@ export default function ProductPageClient({
                         </Button>
                     </div>
                     <Separator/>
+
+                    {/* Add to basket button */}
                     <div
-                    className="flex flex-row w-full items-center justify-center lg:justify-start"
+                    className="flex flex-row w-full items-center justify-center lg:justify-start" // centering items when mobile
                     >
                         <Button
                         onClick={() => {

@@ -28,9 +28,9 @@ export default async function Page({
 
     const products = await getProducts()
 
-    const categories = getCategories(products)
+    const categories = getCategories(products) // need this at filter sidebar
 
-    const { minPrice, maxPrice } = getMinAndMaxPrice(products)
+    const { minPrice, maxPrice } = getMinAndMaxPrice(products) // need this at filter sidebar
 
     return (
         <ProductsPageContextProvider

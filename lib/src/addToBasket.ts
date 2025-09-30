@@ -48,6 +48,8 @@ export function addToBasket(product: cartProductType): cartProductType[] {
 
     localStorage.setItem('cart', JSON.stringify(items))
 
+    // return items for context set 
+
     return items
 
 }

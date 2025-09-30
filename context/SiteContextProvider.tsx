@@ -49,6 +49,7 @@ export default function SiteContextProvider({
 
     useEffect(() => {
 
+        // initial shopping cart set
         const cartStorage = localStorage.getItem('cart')
 
         if (!cartStorage) {
