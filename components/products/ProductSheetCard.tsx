@@ -8,6 +8,7 @@ import { Label } from "../ui/label"
 import { Button } from "../ui/button"
 import { IoRemove, IoAdd, IoTrashBin } from 'react-icons/io5'
 import { useSiteContext } from "@/context/SiteContextProvider"
+import Link from "next/link"
 
 
 
@@ -39,14 +40,20 @@ export default function ProductSheetCard({
                     <div
                     className="w-16 h-16 aspect-square shrink-0"
                     >
-                        <Image
-                        width={64}
-                        height={64}
-                        alt={`${product.title} cart image`}
-                        src={product.image}
-                        loader={imageLoader}
-                        className="w-full aspect-square rounded-md"
-                        />
+                        <Link
+                        href={`/products/${product.id}`}
+                        >
+                            <Image
+                            width={64}
+                            height={64}
+                            alt={`${product.title} cart image`}
+                            src={product.image}
+                            loader={imageLoader}
+                            className="w-full aspect-square rounded-md object-contain"
+                            loading="lazy"
+                            fetchPriority="high"
+                            />
+                        </Link>
                     </div>
                     <div
                     className="flex flex-col gap-2"
@@ -57,7 +64,7 @@ export default function ProductSheetCard({
                             </b>
                         </Label>
                         <Label>
-                            {product.price * product.count} $
+                            {(product.price * product.count).toFixed(2)} $
                         </Label>
                         <div
                         className="flex flex-row items-center gap-4"

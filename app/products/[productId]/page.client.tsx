@@ -94,7 +94,9 @@ export default function ProductPageClient({
                     alt={`${product.title} image`}
                     loader={imageLoader}
                     src={product.image}
-                    className="w-full aspect-square rounded-xl"
+                    className="w-full aspect-square rounded-xl object-contain"
+                    loading="lazy"
+                    fetchPriority="high"
                     />
                 </div>
                 <div
@@ -121,7 +123,7 @@ export default function ProductPageClient({
                     </P>
                     <Separator/>
                     <H2>
-                        {product.price * count} $
+                        {(product.price * count).toFixed(2)} $
                     </H2>
                     <div
                     className="flex flex-row items-center gap-4"
@@ -136,6 +138,7 @@ export default function ProductPageClient({
                                 setCount((prev) => prev - 1)
                             }
                         }}
+                        aria-label={t('Minus Button')}
                         >
                             <IoRemove/>
                         </Button>
@@ -151,6 +154,7 @@ export default function ProductPageClient({
                         onClick={() => {
                             setCount((prev) => prev + 1)
                         }}
+                        aria-label={t('Minus Button')}
                         >
                             <IoAdd/>
                         </Button>

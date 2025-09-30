@@ -57,6 +57,7 @@ export default function MainMenu() {
                     >
                         <SelectTrigger
                         className={buttonVariants({ variant: 'secondary' })}
+                        aria-label={t('Language Button')}
                         >
                             <SelectValue placeholder={t('Language')}/>
                             <SelectContent>

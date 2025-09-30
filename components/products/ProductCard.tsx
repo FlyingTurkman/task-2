@@ -51,14 +51,20 @@ export default function ProductCard({
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <Image
-                width={256}
-                height={256}
-                loader={imageLoader}
-                alt={`${product.title} image`}
-                className="w-full rounded-md aspect-square"
-                src={product.image}
-                />
+                <Link
+                href={`/products/${product.id}`}
+                >
+                    <Image
+                    width={256}
+                    height={256}
+                    loader={imageLoader}
+                    alt={`${product.title} image`}
+                    className="w-full rounded-md aspect-square object-contain"
+                    src={product.image}
+                    loading="lazy"
+                    fetchPriority="high"
+                    />
+                </Link>
             </CardContent>
             <CardContent>
                 <div

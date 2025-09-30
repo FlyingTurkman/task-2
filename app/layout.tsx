@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Task 2",
   description: "Task developed by FlyingTurkman",
+  keywords: 'Shopping, online shopping, cheap shopping'
 };
 
 export default function RootLayout({

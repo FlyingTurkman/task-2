@@ -22,5 +22,8 @@
     "Language": "Dil",
     "Shopping Cart": "Sepet",
     "Product succesfully added to cart.": "Ürün sepete başarıyla eklendi.",
-    "Page Not Found": "Sayfa Bulunamadı"
+    "Page Not Found": "Sayfa Bulunamadı",
+    "Language Button": "Dil Düğmesi",
+    "Minus Button": "Azalt Düğmesi",
+    "Plus Button": "Arttır Düğmesi"
 }
