@@ -122,11 +122,13 @@ export default function ProductPageClient({
                         {product.description}
                     </P>
                     <Separator/>
-                    <H2>
+                    <H2
+                    className="text-center lg:text-start"
+                    >
                         {(product.price * count).toFixed(2)} $
                     </H2>
                     <div
-                    className="flex flex-row items-center gap-4"
+                    className="flex flex-row items-center justify-center lg:justify-start gap-4"
                     >
                         <Button
                         variant={'outline'}
@@ -160,24 +162,28 @@ export default function ProductPageClient({
                         </Button>
                     </div>
                     <Separator/>
-                    <Button
-                    onClick={() => {
-
-                        const cartProduct: cartProductType = {
-                            ...product,
-                            count
-                        }
-
-                        const response = addToBasket(cartProduct)
-
-                        setCart(response)
-
-                        toast.success(t('Product succesfully added to cart.'))
-                    }}
+                    <div
+                    className="flex flex-row w-full items-center justify-center lg:justify-start"
                     >
-                        <FaShoppingCart/>
-                        Add To Basket
-                    </Button>
+                        <Button
+                        onClick={() => {
+
+                            const cartProduct: cartProductType = {
+                                ...product,
+                                count
+                            }
+
+                            const response = addToBasket(cartProduct)
+
+                            setCart(response)
+
+                            toast.success(t('Product succesfully added to cart.'))
+                        }}
+                        >
+                            <FaShoppingCart/>
+                            Add To Basket
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

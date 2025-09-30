@@ -6,6 +6,11 @@ import { buttonVariants } from "../ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { US, TR } from 'country-flag-icons/react/3x2'
 import CartSheet from "./CartSheet"
+import { Label } from "../ui/label"
+import { FormLabel } from "../ui/form"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
+import { IoMenu } from "react-icons/io5"
+import { Separator } from "../ui/separator"
 
 
 
@@ -30,7 +35,7 @@ export default function MainMenu() {
             className="flex flex-row items-center mx-auto container justify-between w-full p-4"
             >
                 <div
-                className="flex flex-row items-center gap-4"
+                className="hidden lg:flex flex-row items-center gap-4"
                 >
                     <Link
                     href={'/'}
@@ -46,6 +51,37 @@ export default function MainMenu() {
                     </Link>
                 </div>
                 <div
+                className="flex lg:hidden"
+                >
+                    <Sheet>
+                        <SheetTrigger>
+                            <IoMenu/>
+                        </SheetTrigger>
+                        <SheetContent
+                        side="left"
+                        >
+                            <SheetHeader>
+                                <SheetTitle>
+                                    {t('Menu')}
+                                </SheetTitle>
+                            </SheetHeader>
+                            <Separator/>
+                            <Link
+                            href={'/'}
+                            className={buttonVariants({ variant: 'ghost' })}
+                            >
+                                {t('Main Page')}
+                            </Link>
+                            <Link
+                            href={'/products'}
+                            className={buttonVariants({ variant: 'ghost' })}
+                            >
+                                {t('Products')}
+                            </Link>
+                        </SheetContent>
+                    </Sheet>
+                </div>
+                <div
                 className="flex flex-row items-center gap-4"
                 >
                     <Select
@@ -58,20 +94,33 @@ export default function MainMenu() {
                         <SelectTrigger
                         className={buttonVariants({ variant: 'secondary' })}
                         aria-label={t('Language Button')}
+                        size="sm"
                         >
                             <SelectValue placeholder={t('Language')}/>
                             <SelectContent>
                                 <SelectItem
                                 value="tr"
                                 >
-                                    <TR/>
-                                    Türkçe
+                                    <Label>
+                                        <TR/>
+                                        <Label
+                                        className="hidden lg:block"
+                                        >
+                                            Türkçe
+                                        </Label>
+                                    </Label>
                                 </SelectItem>
                                 <SelectItem
                                 value="en"
                                 >
-                                    <US/>
-                                    English
+                                    <Label>
+                                        <US/>
+                                        <Label
+                                        className="hidden lg:block"
+                                        >
+                                            English
+                                        </Label>
+                                    </Label>
                                 </SelectItem>
                             </SelectContent>
                         </SelectTrigger>

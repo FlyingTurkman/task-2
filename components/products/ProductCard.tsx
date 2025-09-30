@@ -85,9 +85,7 @@ export default function ProductCard({
                     >
                         {product.description}
                     </CardDescription>
-                    <Label
-                    className="text-xl"
-                    >
+                    <Label>
                         {product.price} $
                     </Label>
                 </div>

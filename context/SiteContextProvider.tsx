@@ -48,6 +48,7 @@ export default function SiteContextProvider({
     }
 
     useEffect(() => {
+
         const cartStorage = localStorage.getItem('cart')
 
         if (!cartStorage) {
